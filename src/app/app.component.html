@@ -1,0 +1,21 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <h2>Movie Catalogue par Ketsman Ruben</h2>
+
+    <span class="right"><app-auth></app-auth></span>
+  </nb-layout-header>
+
+  <nb-sidebar>
+    <app-nav></app-nav>
+  </nb-sidebar>
+
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-footer slot="start" fixed>
+  <p>&copy; Ketsman Ruben 2021</p>
+  </nb-layout-footer>
+
+</nb-layout>

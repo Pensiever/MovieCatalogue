@@ -1,0 +1,31 @@
+<nb-card status="info" size="small">
+  <nb-card-header>
+      Profil de {{ currentUser.firstName}} {{currentUser.lastName}}
+  </nb-card-header>
+  <nb-card-body>
+      <nb-list>
+          <nb-list-item>
+      <nb-layout-column>
+          <nb-list>
+              <nb-list-item>
+                  <label>Email : </label>
+              </nb-list-item>
+              <nb-list-item>
+                  <label>Date de naissance : </label>
+              </nb-list-item>
+          </nb-list>
+      </nb-layout-column>
+      <nb-layout-column >
+          <nb-list>
+              <nb-list-item>
+                  <label>{{currentUser.email}}</label>
+              </nb-list-item>
+              <nb-list-item>
+                  <label>{{currentUser.birthDate | date:'dd-MM-yyyy'}}</label>
+              </nb-list-item>
+          </nb-list>
+      </nb-layout-column>
+  </nb-list-item>
+  </nb-list>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,11 @@
+<div *ngIf="!isConnected">
+    <form [formGroup]="loginFG" (ngSubmit)="onSubmit()">
+      <p><input placeholder="Email" nbInput type="email" formControlName="email"> &nbsp;
+      <input placeholder="Password" nbInput type="password" formControlName="password"> &nbsp;
+      <button nbButtontype="submit" [disabled]="loginFG.invalid">Se connecter</button>
+    </p>
+  </form>
+</div>
+<div *ngIf="isConnected">
+  <button nbButton (click)="logout()">Déconnecter</button>
+</div>

@@ -1,0 +1,10 @@
+<span *ngIf="currentUser == null">
+  <a [routerLink]="['/login']">Se connecter</a> |
+<a [routerLink]="['/register']">S'enregister</a>
+</span>
+
+<span *ngIf="currentUser != null">
+  <a [routerLink]="['/profile']" id="name-link">{{currentUser.firstName}} </a>
+  <a [routerLink]="['/adminPage']" *ngIf="currentUser.isAdmin" id="adminPage-link"> | Page admin</a>
+  <button nbButton (click)="logout()">Déconnection</button>
+</span>

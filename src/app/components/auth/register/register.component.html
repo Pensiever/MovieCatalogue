@@ -1,0 +1,53 @@
+<form [formGroup]="newUserFG" (ngSubmit)="onSubmit()">
+  <nb-card>
+      <nb-card-header>
+          <h5>Nouvel utilisateur</h5>
+      </nb-card-header>
+      <nb-card-body>
+          <nb-list>
+              <nb-list-item>
+              <nb-layout-column>
+                  <nb-list>
+                      <nb-list-item>
+                          Email
+                      </nb-list-item>
+                  </nb-list>
+                  <nb-list>
+                      <nb-list-item>
+                          Mot de passe
+                      </nb-list-item>
+                  </nb-list>
+                  <nb-list>
+                      <nb-list-item>
+                          Prénom
+                      </nb-list-item>
+                  </nb-list>
+                  <nb-list>
+                      <nb-list-item>
+                          Nom
+                      </nb-list-item>
+                  </nb-list>
+                  <nb-list>
+                      <nb-list-item>
+                          Date de naissance
+                      </nb-list-item>
+                  </nb-list>
+
+              </nb-layout-column>
+              <nb-layout-column style="border-left: black 1px solid;">
+                  <p><input nbInput [status]="(newUserFG.controls['email'].invalid && newUserFG.value['email'] != '') ? 'danger' : 'basic'" formControlName="email"></p>
+                  <p><input nbInput [status]="(newUserFG.controls['password'].invalid && newUserFG.value['password'] != '') ? 'danger' : 'basic'" formControlName="password" type="password"></p>
+                  <p><input nbInput formControlName="firstName"></p>
+                  <p><input nbInput formControlName="lastName"></p>
+                  <p><input nbInput formControlName="birthDate" type="date"></p>
+              </nb-layout-column>
+              <nb-layout-column></nb-layout-column>
+              <nb-layout-column></nb-layout-column>
+          </nb-list-item>
+          </nb-list>
+      </nb-card-body>
+      <nb-card-footer>
+           <p><button nbButton [disabled]="newUserFG.invalid">Valider</button></p>
+      </nb-card-footer>
+  </nb-card>
+  </form>

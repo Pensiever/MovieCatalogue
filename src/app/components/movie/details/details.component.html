@@ -1,0 +1,40 @@
+<nb-card status="primary">
+  <nb-card-header>
+      <h2>{{ currentMovie.title }} <button class="right" nbButton outline status="control" (click)="addComment()">Ajouter un commentaire</button></h2>
+
+  </nb-card-header>
+  <nb-card-body>
+      <p>Description : {{currentMovie.description}}</p>
+      <p>Année de sortie : {{currentMovie.releaseYear}}</p>
+      <p>Réalisateur : <a [routerLink]="['/pdetail/'+currentMovie.realisator.id]">{{currentMovie.realisator.firstName}} {{currentMovie.realisator.lastName}}</a></p>
+      <p>Scénariste : <a [routerLink]="['/pdetail/'+currentMovie.scenarist.id]">{{currentMovie.scenarist.firstName}} {{currentMovie.scenarist.lastName}}</a></p>
+      <nb-card *ngIf="currentMovie.actors != null" status="success">
+          <nb-card-header (click)="castToggle()" style="cursor: pointer;"><nb-icon icon="arrow-down"></nb-icon>Casting</nb-card-header>
+          <nb-card-body *ngIf="castToggled">
+              <div *ngFor="let item of currentMovie.actors">
+                  <p>Role : {{item.role}}</p>
+                  <p>Acteur : <a [routerLink]="['/pdetail/'+item.id]">{{item.firstName}} {{item.lastName}}</a></p>
+                  <hr />
+              </div>
+          </nb-card-body>
+      </nb-card>
+  </nb-card-body>
+  <nb-card-footer *ngIf="commentList.length > 0"><p (click)="coToggle()" style="cursor: pointer;"><nb-icon icon="arrow-down"></nb-icon>Commentaires</p>
+      <div *ngIf="commentToggled">
+      <nb-card *ngFor="let item of commentList">
+          <nb-card-header>
+              De : {{item.userID}} le : {{item.postDate | date: 'dd/MM/yyyy'}}
+               <span *ngIf="isAdmin" class="right">
+                   <button
+                  nbButton status="danger"
+                  (click)="deleteComment(item.id)">X
+              </button>
+          </span>
+          </nb-card-header>
+          <nb-card-body>
+              {{item.content}}
+          </nb-card-body>
+      </nb-card>
+  </div>
+  </nb-card-footer>
+</nb-card>
