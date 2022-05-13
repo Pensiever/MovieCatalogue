@@ -23,5 +23,4 @@ export class ProfileComponent implements OnInit {
         (u : User) => this.currentUser = u
       )
   }
-
 }
