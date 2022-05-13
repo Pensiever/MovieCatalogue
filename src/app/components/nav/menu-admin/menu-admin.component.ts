@@ -13,6 +13,7 @@ export class AdminMenuComponent implements OnInit {
   ngOnInit(): void {
     this.adminMenu = [
       { link : '/addMovie', title : 'Ajouter un film'}
+      // { link : '/setAdmin', title : 'Changer Admin'}
     ]
   }
 

@@ -12,6 +12,7 @@ import { MovieresolverService} from './services/movieresolver.service';
 import { AddComponent } from './components/movie/add/add.component';
 import {PersonResolver} from './services/personresolver.service'
 const routes: Routes = [
+  { path : '', redirectTo : 'movie', pathMatch : 'full'},
   { path : 'login', component : LoginComponent},
   { path : 'register', component : RegisterComponent},
   { path : 'adminPanel', component : AdminPageComponent},
